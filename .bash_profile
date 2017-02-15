@@ -16,6 +16,6 @@ YELLOW='\[\033[1;33m\]'
 WHITE='\[\033[1;37m\]'
 NO_COLOR='\[\033[m\]'
 
-export PS1="[$DARK_GRAY\d \A$NO_COLOR]\n[$BLUE\w$NO_COLOR]\n[$LIGHT_GREEN\u$NO_COLOR@$RED\h$NO_COLOR]: $BROWN\v$NO_COLOR \$ "
+export PS1="[$DARK_GRAY\d \A$NO_COLOR]\n[$BLUE\w$NO_COLOR]\n[$LIGHT_GREEN\u$NO_COLOR@$RED\h$NO_COLOR]: $BROWN\a\v$NO_COLOR \$ "
 export CLICOLOR=1
 export LSCOLORS=ExfxcxdxbxBAedabagacad
