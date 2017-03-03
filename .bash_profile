@@ -1,21 +1,8 @@
-BLACK='\[\033[0;30m\]'
-BLUE='\[\033[0;34m\]'
-GREEN='\[\033[0;32m\]'
-CYAN='\[\033[0;36m\]'
-RED='\[\033[0;31m\]'
-PURPLE='\[\033[0;35m\]'
-BROWN='\[\033[0;33m\]'
-LIGHT_GRAY='\[\033[0;37m\]'
-DARK_GRAY='\[\033[1;30m\]'
-LIGHT_BLUE='\[\033[1;34m\]'
-LIGHT_GREEN='\[\033[1;32m\]'
-LIGHT_CYAN='\[\033[1;36m\]'
-LIGHT_RED='\[\033[1;31m\]'
-LIGHT_PURPLE='\[\033[1;35m\]'
-YELLOW='\[\033[1;33m\]'
-WHITE='\[\033[1;37m\]'
-NO_COLOR='\[\033[m\]'
+parse_git_branch() {
 
-export PS1="[$DARK_GRAY\d \A$NO_COLOR]\n[$BLUE\w$NO_COLOR]\n[$LIGHT_GREEN\u$NO_COLOR@$RED\h$NO_COLOR]: $BROWN\a\v$NO_COLOR \$ "
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+
+}
+
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[31m\]\h\[\033[m\]:\[\033[32;1m\]\w\[\033[33;1m\]\$(parse_git_branch)\[\033[m\] \$ "
 export CLICOLOR=1
-export LSCOLORS=ExfxcxdxbxBAedabagacad
